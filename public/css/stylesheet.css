@@ -143,6 +143,17 @@ body {
 #tutorial:visited {
 	color: #CD5C5C;
 }
+#notification{
+	background-color: #4682B4;
+	color: #F5FFFA;
+	margin-left: 40px;
+	margin-top: 30px;
+	padding: 10px;
+	border-radius: 3px;
+	font-family: Copperplate, "Copperplate Gothic Light", fantasy;
+	font-size: 14px;
+	box-shadow: 5px 5px 5px #828282;
+}
 
 
 

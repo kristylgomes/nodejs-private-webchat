@@ -32,6 +32,12 @@ module.exports = function(app,io){
 		res.render('chat');
 	});
 
+	app.get('/notifications', function(req, res){
+
+		// Render views/notifications.html
+		res.render('notifications');
+	});
+
 	// Initialize a new socket.io application, named 'chat'
 	var chat = io.of('/socket').on('connection', function (socket) {
 

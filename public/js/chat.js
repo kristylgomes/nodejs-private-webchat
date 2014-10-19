@@ -172,6 +172,7 @@ $(function(){
 		if(data.msg.trim().length) {
 			createChatMessage(data.msg, data.user, data.img, moment());
 			scrollToBottom();
+			var notification = new Notification('New message!');
 		}
 	});
 
@@ -200,6 +201,7 @@ $(function(){
 
 			// Send the message to the other person in the chat
 			socket.emit('msg', {msg: textarea.val(), user: name, img: img});
+			//var notification = new Notification('msg sent');
 
 		}
 		// Empty the textarea

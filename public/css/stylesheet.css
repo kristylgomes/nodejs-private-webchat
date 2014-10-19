@@ -153,9 +153,30 @@ body {
 	font-family: Copperplate, "Copperplate Gothic Light", fantasy;
 	font-size: 14px;
 	box-shadow: 5px 5px 5px #828282;
+	position: absolute;
+		-animation: buttonanimation 40s infinite; /* Other browsers */
+		-moz-animation: buttonanimation 40s infinite; /* Firefox */
+		-webkit-animation: buttonanimation 40s infinite; /* Safari and Chrome */
 }
 
-
+	@keyframes buttonanimation /* Other browsers */
+		{
+		0%{left:0%;}
+		50%{left:80%;}
+		100%{left:0%;}
+		} 
+	@-moz-keyframes buttonanimation /* Firefox */
+		{
+		0%{left:0%;}
+		50%{left:80%;}
+		100%{left:0%;}
+		} 
+	@-webkit-keyframes buttonanimation /* Safari and Chrome */
+		{
+		0%{left:0%;}
+		50%{left:80%;}
+		100%{left:0%;}
+		} 
 
 /* ------ Connected ------*/
 

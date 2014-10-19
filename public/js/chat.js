@@ -165,7 +165,16 @@ $(function(){
 		}
 	});
 
-	function notifyMe() {
+	socket.on('receive', function(data){
+
+		showMessage('chatStarted');
+
+		if(data.msg.trim().length) {
+			createChatMessage(data.msg, data.user, data.img, moment());
+			scrollToBottom();
+			//var notification = new Notification(data.msg);
+			//notifyMe();
+				function notifyMe() {
   // Let's check if the browser supports notifications
   if (!("Notification" in window)) {
     alert("This browser does not support desktop notification");
@@ -174,7 +183,7 @@ $(function(){
   // Let's check if the user is okay to get some notification
   else if (Notification.permission === "granted") {
     // If it's okay let's create a notification
-    var notification = new Notification("New Message!", {
+    var notification = new Notification(data.msg, {
   	body: 'from Kristyl Orlovich chatsite'});
   }
 
@@ -190,7 +199,8 @@ $(function(){
 
       // If the user is okay, let's create a notification
       if (permission === "granted") {
-        var notification = new Notification("Chats will be sent");
+            var notification = new Notification(data.msg, {
+  	body: 'from Kristyl Orlovich chatsite'});
       }
     });
   }
@@ -198,16 +208,7 @@ $(function(){
   // At last, if the user already denied any notification, and you 
   // want to be respectful there is no need to bother them any more.
 }
-
-	socket.on('receive', function(data){
-
-		showMessage('chatStarted');
-
-		if(data.msg.trim().length) {
-			createChatMessage(data.msg, data.user, data.img, moment());
-			scrollToBottom();
-			// var notification = new Notification('New message!');
-			notifyMe();
+notifyMe();
 		}
 	});
 

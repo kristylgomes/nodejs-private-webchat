@@ -3,24 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <title>Kristyl's Test notification page</title>
-    <link type="text/css" rel="stylesheet" href="css/stylesheet.css" />
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans Condensed:300italic,300,700" rel="stylesheet" type="text/css">
-    <link rel="icon" href="img/IMG_4224_avatar.png" type="image/x-icon"/>
+  <link type="text/css" rel="stylesheet" href="css/stylesheet.css" />
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans Condensed:300italic,300,700" rel="stylesheet" type="text/css">
+  <link rel="icon" href="img/IMG_4224_avatar.png" type="image/x-icon"/>
   <style type="text/css">
+/*    body{
+      background-color: #C7D8E1;
+    }*/
   </style>	
 </head>
 <body>
-<h1></h1>
-<p>
-  
-</p>
+  <h1></h1>
+  <p>
+
+  </p>
 </body>
 <p>
-<br>
-<button id="notification" onclick="notifyMe()">Notify me!</button>
-	<script language="JavaScript" type="text/javascript">
+  <br>
+  <button id="notification" onclick="notifyMe()">Notify me!</button>
+  <script language="JavaScript" type="text/javascript">
 
-function notifyMe() {
+    function notifyMe() {
   // Let's check if the browser supports notifications
   if (!("Notification" in window)) {
     alert("This browser does not support desktop notification");
@@ -52,5 +55,5 @@ function notifyMe() {
   // At last, if the user already denied any notification, and you 
   // want to be respectful there is no need to bother them any more.
 }
-	</script>	
+</script>	
 </html>

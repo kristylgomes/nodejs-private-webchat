@@ -211,6 +211,11 @@ $(function(){
  		 // want to be respectful there is no need to bother them any more.
 		}
 		notifyMe();
+		console.log(data.msg);
+		// Save data to the current session's store
+		sessionStorage.setItem("messagetext", data.msg);
+		// Access some stored data
+		//alert( "messagetext = " + sessionStorage.getItem("messagetext"));
 			}
 	 });
 

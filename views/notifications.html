@@ -11,13 +11,11 @@
       background-color: #C7D8E1;
     }*/
   </style>	
+  <script src='https://cdn.firebase.com/js/client/1.1.1/firebase.js'></script>
 </head>
 <body>
   <h1></h1>
-  <p>
-
-  </p>
-
+  <p></p>
 <p>
   <br>
   <button id="notification" onclick="notifyMe()">Notify me!</button>
@@ -26,6 +24,12 @@
 <!--   <button onclick="saveMe()">Save me!</button> -->
   </div>
   <script language="JavaScript" type="text/javascript">
+  var myDataRef = new Firebase('https://luminous-heat-5618.firebaseio.com/');
+  var name = 'Kristyl';
+  var text = 'standardmessgetext';
+  // myDataRef.set('User ' + name + ' says ' + text);
+  // myDataRef.set({name: name, text: text});
+  myDataRef.push({name: name, text: text});
 
     function notifyMe() {
   // Let's check if the browser supports notifications

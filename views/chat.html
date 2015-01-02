@@ -10,6 +10,7 @@
 	<link type="text/css" rel="stylesheet" href="../css/stylesheet.css" />
 	<link href="http://fonts.googleapis.com/css?family=Open+Sans Condensed:300italic,300,700" rel="stylesheet" type="text/css">
 	<link rel="icon" href="../img/IMG_4224_avatar.png" type="image/x-icon" />
+	 <script src='https://cdn.firebase.com/js/client/1.1.1/firebase.js'></script>
 	<script>
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -18,6 +19,32 @@
 
 		ga('create', 'UA-55843665-1', 'auto');
 		ga('send', 'pageview');
+		var myDataRef = new Firebase('https://luminous-heat-5618.firebaseio.com/');  
+
+		function savetofirebase(){
+          var name = $('#yourName').val();
+          var email = $('#yourEmail').val();
+          //var mySessionRef = myDataRef.push({name: name, email: email});
+          myDataRef.push({ user1: {name: name, email: email}});
+          myDataRef.update({ startedAt: Firebase.ServerValue.TIMESTAMP });
+          myDataRef.onDisconnect().update({ endedAt: Firebase.ServerValue.TIMESTAMP });
+		}   
+
+		function savetofirebase2(){ 
+          var name = $('#hisName').val();
+          var email = $('#hisEmail').val();
+          //var mySessionRef = myDataRef.push({secondname: name, secondemail: email});
+          myDataRef.push({ user2: {name: name, email: email}});
+          myDataRef.update({ startedAt: Firebase.ServerValue.TIMESTAMP });
+          myDataRef.onDisconnect().update({ endedAt: Firebase.ServerValue.TIMESTAMP });
+		}
+
+		function savetofirebase3(){ 
+          var message = $('#message').val();
+          var mySessionRef = myDataRef.push({message: message});
+    //       mySessionRef.onDisconnect().update({ endedAt: Firebase.ServerValue.TIMESTAMP });
+		  // mySessionRef.update({ startedAt: Firebase.ServerValue.TIMESTAMP });
+		}
 	</script>
 </head>
 <body>
@@ -40,7 +67,7 @@
 				</select>-->
 				<input type="text" id="yourName" placeholder="your nick name" /><br/>
 				<input type="text" id="yourEmail" placeholder="Your email address" /><br/>
-				<input type="submit" id="yourEnter" value="ENTER" />
+				<input onclick="savetofirebase()" type="submit" id="yourEnter" value="ENTER" />
 			</form>
 		</div>
 	</div>
@@ -52,7 +79,7 @@
 			<form class="loginForm">
 				<input type="text" id="hisName" placeholder="Your nick name" /><br/>
 				<input type="text" id="hisEmail" placeholder="Your email address" /><br/>
-				<input type="submit" id="hisEnter" value="CHAT" />
+				<input onclick="savetofirebase2()" type="submit" id="hisEnter" value="CHAT" />
 			</form>
 		</div>
 	</div>
@@ -88,9 +115,9 @@
 	</div>
 </section>
 <footer>
-	<form id="chatform">
-		<textarea id="message" placeholder="Write something.."></textarea>
-		<input type="submit" id="submit" value="SEND"/>
+	<form id="chatform" onsubmit="savetofirebase3()">
+		<textarea id="message" placeholder="Write something..."></textarea>
+		<input onclick="savetofirebase3()" type="submit" id="submit" value="SEND"/>
 	</form>
 </footer>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
